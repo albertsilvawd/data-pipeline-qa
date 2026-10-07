@@ -1,0 +1,38 @@
+{
+  "description": "Tracking plan: the contract every analytics event must follow before it is loaded.",
+  "envelope": {
+    "type": "object",
+    "required": ["event_id", "event_name", "user_id", "timestamp", "properties"],
+    "properties": {
+      "event_id": {"type": "string", "pattern": "^evt_[0-9]{6}$"},
+      "event_name": {"enum": ["page_view", "add_to_cart", "purchase"]},
+      "user_id": {"type": "integer", "minimum": 1},
+      "timestamp": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"},
+      "properties": {"type": "object"}
+    }
+  },
+  "events": {
+    "page_view": {
+      "type": "object",
+      "required": ["page"],
+      "properties": {"page": {"type": "string", "minLength": 1}}
+    },
+    "add_to_cart": {
+      "type": "object",
+      "required": ["product_id", "quantity"],
+      "properties": {
+        "product_id": {"type": "string", "pattern": "^P\\d{3}$"},
+        "quantity": {"type": "integer", "minimum": 1}
+      }
+    },
+    "purchase": {
+      "type": "object",
+      "required": ["order_id", "value", "currency"],
+      "properties": {
+        "order_id": {"type": "integer", "minimum": 1},
+        "value": {"type": "number", "exclusiveMinimum": 0},
+        "currency": {"enum": ["USD"]}
+      }
+    }
+  }
+}
