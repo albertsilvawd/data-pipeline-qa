@@ -92,4 +92,4 @@ Python · pandas · SQL (SQLite and BigQuery Standard SQL) · pytest · JSON Sch
 
 ---
 
-Built by **Albert Silva**, data analyst moving into data quality engineering. [LinkedIn](https://www.linkedin.com/in/albertvsilva)
+Built by **Albert Silva**, data analyst moving into data quality engineering, using AI-assisted development: every component was reviewed, executed and tested by me. [LinkedIn](https://www.linkedin.com/in/albertvsilva)
